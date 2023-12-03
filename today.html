@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="image/favicon (1).ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <title>Attend</title>
+    <title>Work Tracker</title>
+</head>
+<body>
+    <div class="navbar">
+        <div id="logo"><a href="home.html" target="_blank"><img src="logo.png" width="100px" /></a></div>
+        <div class="nav-btns">
+            <a href="today.html" target="_blank"><button id="today-btn">Today</button></a>
+            <a href="home.html"><button id="home-btn">Home</button></a>
+            <button id="about-btn">About</button>
+            <button id="login-btn">Log in</button>
+        </div>
+    </div>
+    <div class="today-container">
+        <div class="t-title">Log in Today's Work and Task's</div>
+        <div class="login">
+            <div class="addspace">
+                <label class="label" id="t-work" for="work">Today's Work:</label>
+                <input class="input" placeholder="Work" type="text" id="work" name="work">
+            </div>
+            <div class="addspace">
+                <label class="label" id="t-logint" for="login">Login Time:</label>
+                <input class="input"  type="time" id="logint" name="login">
+            </div>
+            <div class="addspace">
+                <label class="label" id="t-logout" for="logout">Logout Time:</label>
+                <input class="input"  type="time" id="logout" name="logout">
+            </div>
+            <div class="addspace1">
+                <label class="label" for="task">Sub Tasks:</label>
+                <input class="input" placeholder="Title..." type="text" name="task" id="input">    
+                <button id="add-btn">Add</button>
+                <div id="list">
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+
+</body>
+<script src="today.js"> </script>
+</html>

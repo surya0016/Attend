@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+</head>
+<body>
+    <button id='remove-btn'>remove</button>
+    <h2>Todo List</h2>
+    Task: <input type="text" id="input">
+    <button id="add-btn">Add</button>
+    <p id="list"></p>
+</body>
+<script>
+    
+    let todoInput = document.getElementById("input");
+    let todoList = document.getElementById("list");
+    let addBtn = document.getElementById('add-btn');
+    let removeBtn = document.getElementById('remove-btn');
+
+    removeBtn.addEventListener('click' , function(){
+        console.log("removed");
+    })
+
+    addBtn.addEventListener('click', function(){
+        todoList.innerHTML = `<input type="checkbox" name="task">
+    <label for="task">${todoInput.value}</label> <button id='remove-btn'>remove</button>`
+
+        console.log(todoInput);
+    })
+    console.log(todoInput.value);
+</script>
+</html>
