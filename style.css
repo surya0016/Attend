@@ -1,28 +1,43 @@
+/* --light-green: #c7ffabff;
+--light-green-2: #93e37dff;
+--dark-pastel-green: #40c247ff;
+--forest-green: #008724ff;
+--dark-green: #00260dff; */
+
+
 *{
     font-family: Sans-serif;
     padding: 0px;
     margin: 0px;
+    background-color: #eeffe1;
+}
+.main{
+    margin-top: 100px;
 }
 .navbar{
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     padding: 15px 30px 15px 30px;
-    border-bottom: 1px solid rgb(202, 202, 202);
+    border-bottom: 1px solid #9bbe92;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 #logo{
     padding-top: 6px;
 }
 .navbar .nav-btns button{
-    color: gray;
+    color: #005221;
     padding-top: 7px;
     padding-left:40px;
     border: 0px;
-    background-color: white;
+    background-color:#eeffe1;
     font-size:15px; 
     cursor: pointer;
 }
 .nav-btns button:hover{
-    color: rgb(128, 224, 73);
+    color: #000000;
 }
 
 #quote{
@@ -33,6 +48,7 @@
     font-weight: lighter;
 }
 #mnth{
+    color: #001409;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
@@ -42,17 +58,17 @@
 
 .cal button{
     margin: 10px;
-    color: black;
+    color: #001409;
     padding:40px 20px;
     border: 0px;
-    background-color: rgb(87, 219, 87);
+    background-color: #A4EB9B;
     border-radius: 5px;
     cursor: pointer;
     font-size: 60px;
     font-family: 'Oswald', sans-serif;
 }
 .cal button:hover{
-    background-color: rgb(0, 187, 0);
+    background-color: #40C247;
 }
 
 .cal{
@@ -68,19 +84,21 @@
     align-items: center;
     justify-content: center;
     padding: 90px;
-    border: 0px solid black;
+    border: 1px solid black;
     margin: 90px 400px 90px 400px;
-    background-color: rgba(167, 167, 167, 0.11);
+    background-color: #eeffe1;
 }
 .t-title{
+    color: #001409;
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }
 .input {
     /* max-width: 190px; */
     width: 300px;
     height: 44px;
-    background-color: rgba(21, 255, 0, 0.041);
+    background-color: #A4EB9B;
     border-radius: .5rem;
     padding: 0 1rem;
     border: 2px solid transparent;
@@ -94,13 +112,13 @@
     margin-left: 3px;
     font-size: .9rem;
     font-weight: bold;
-    color: #05060f99;
+    color: #005221;
     transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
   }
   
   .input:hover, .input:focus, .input-group:hover .input {
     outline: none;
-    border-color: #05060f;
+    border-color: #005221;
   }
   
   .input-group:hover .label, .input:focus {
@@ -115,7 +133,7 @@
 }
 #add-btn{
     position: absolute; 
-    top: 29px; 
+    top: 47px; 
     height: 50px; 
     cursor: pointer; 
     border: 0px;
@@ -124,4 +142,82 @@
     font-size: .9rem;
     font-weight: bold;
     color: #05060f99;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+/* Style the list items */
+ul li{
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: transparent;
+    font-size: 18px;
+    transition: 0.2s;
+    border-radius: 0.3rem;
+    /* make the list items unselectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/* Set all odd list items to a different color (zebra-stripes) */
+ul li:nth-child(odd){
+    color: #001409;
+    background: transparent;
+}
+/* Darker background-color on hover */
+/* ul li:hover{
+    background: #C9FCC2;
+} */
+/* When clicked on, add a background color and strike out text */
+ul li.checked{
+    background: transparent;
+    color: #001409;
+    text-decoration: line-through;
+}
+/* Add a "checked" mark when clicked on */
+ul li.checked::before{
+    content: '';
+    position: absolute;
+    border-color: #001409;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+/* Style the close button */
+.close{
+    position: absolute;
+    right: 0;
+    top:0;
+    padding: 12px 16px 12px 16px;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+.close:hover{
+    background: transparent;
+    color: black;
+}
+#sub-btn{
+    border-radius: .5rem;
+    padding: 12px 24px;
+    text-align: center;
+    background-color: #72cc66;
+    border: 0px;
+    font-weight: bolder;
+    font-size: medium;
+    cursor: pointer;
+}
+
+#todaysDate{
+    color: #001409;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
 }

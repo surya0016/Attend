@@ -1,0 +1,19 @@
+Attend App Plans and Features
+
+1.What are the features
+~You can track your everyday progress 
+~You can login the time you start your work
+~You can add your to do tasks
+~You can see your previous day's work and tasks you've done
+~A calender will be in the home page
+~The day's you have worked will be Green and non-working day will be red or grey color
+
+2.How will it work
+~When clicked on today it should be store the data on its respective day and date
+~When you submit the data it should be stored in its repective date in the homepage calender
+~When clicked on a particular date on homepage calender it should show the detail of the respective date 
+
+3.Future Feature plans
+~Add a time-table so you can create your time-table
+~Add a diary type note on every date so you can write what you had done on that day like diary
+~Add future plans or schedule like google calender

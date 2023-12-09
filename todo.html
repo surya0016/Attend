@@ -3,32 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo</title>
+    <title>Todo list</title>
+    <style>
+        /* Include the padding and border in an element's total width and height */
+        *{
+            box-sizing: border-box;
+        }
+        /* Remove margins and padding from the list */
+        ul{
+            margin: 0;
+            padding: 0;
+        }
+        /* Style the list items */
+        ul li{
+            cursor: pointer;
+            position: relative;
+            padding: 12px 8px 12px 40px;
+            background: #eee;
+            font-size: 18px;
+            transition: 0.2s;
+            /* make the list items unselectable */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        /* Set all odd list items to a different color (zebra-stripes) */
+        ul li:nth-child(odd){
+            background: #f9f9f9;
+        }
+        /* Darker background-color on hover */
+        ul li:hover{
+            background: #ddd;
+        }
+        /* When clicked on, add a background color and strike out text */
+        ul li.checked{
+            background: #888;
+            color: white;
+            text-decoration: line-through;
+        }
+        /* Add a "checked" mark when clicked on */
+        ul li.checked::before{
+            content: '';
+            position: absolute;
+            border-color: #fff;
+            border-color: #fff;
+            border-style: solid;
+            border-width: 0 2px 2px 0;
+            top: 10px;
+            left: 16px;
+            transform: rotate(45deg);
+            height: 15px;
+            width: 7px;
+        }
+        /* Style the close button */
+        .close{
+            position: absolute;
+            right: 0;
+            top:0;
+            padding: 12px 16px 12px 16px;
+        }
+
+        .close:hover{
+            background-color: #f44336;
+            color: white;
+        }
+        .header{
+            background-color: #f44336;
+            padding: 30px 40px;
+            color: rgb(89, 0, 255);
+            text-align: center;
+        }
+        .header:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        input{
+            margin: 0;
+            border: none;
+            border-radius: 0;
+            width: 75%;
+            padding: 10px;
+            float: left;
+            font-size: 16px;
+        }
+        /* Style the "Add" button */
+        .addBtn {
+        padding: 10px;
+        width: 25%;
+        background: #d9d9d9;
+        color: #555;
+        float: left;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 0;
+        }
+        .addBtn:hover {
+        background-color: #bbb;
+        }
+    </style> 
 </head>
 <body>
-    <button id='remove-btn'>remove</button>
-    <h2>Todo List</h2>
-    Task: <input type="text" id="input">
-    <button id="add-btn">Add</button>
-    <p id="list"></p>
+    <div id="myDiv" class="header">
+        <h2>To Do List</h2>
+        <input type="text" id="myInput" >
+        <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+    <ul id="myUl">
+        <li>Go to gym</li>
+    </ul>
 </body>
 <script>
-    
-    let todoInput = document.getElementById("input");
-    let todoList = document.getElementById("list");
-    let addBtn = document.getElementById('add-btn');
-    let removeBtn = document.getElementById('remove-btn');
+    //Creating a list for every task
+    var nodeList = document.getElementsByTagName("LI");
+    var i;
+    for(i=0;i<nodeList.length;i++){
+        //creates span tag
+        var span = document.createElement("SPAN");
+        //creates a text (\u00D7 is a symbol for x)
+        var txt = document.createTextNode("\u00D7");
+        //giving a class name to span tag
+        span.className = "close";
+        span.appendChild(txt);
+        nodeList[i].appendChild(span);
+    }
 
-    removeBtn.addEventListener('click' , function(){
-        console.log("removed");
-    })
+    //Click on close button to hide the current list item
+    var close = document.getElementsByClassName("close");
+    var i;
+    for(i=0; i < close.length; i++){
+        close[i].onclick =  function(){
+            //this refers to cuurent object or element that is close
+            //parentElement is the list(li)
+            var div = this.parentElement ;
+            //this property removes the list more like hides it
+            div.style.display = "none";
+        }
+    }
 
-    addBtn.addEventListener('click', function(){
-        todoList.innerHTML = `<input type="checkbox" name="task">
-    <label for="task">${todoInput.value}</label> <button id='remove-btn'>remove</button>`
+    // Add a "checked" symbol when clicking on a list item
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev){
+        //ev is just referss to the event just occured
+        // target is the entity or button that got clicked
+        //so ev.target.tagname means that the button clicked with tagname === "LI"
+        if(ev.target.tagName==="LI"){
+            //ev.target.classList means the class of the clicked button and toggle means to change
+            //So the below code just says that change the class name to checked
+            ev.target.classList.toggle('checked');
+        }
+    },false)
 
-        console.log(todoInput);
-    })
-    console.log(todoInput.value);
+    function newElement(){
+        var li = document.createElement("li");
+        var inputValue = document.getElementById("myInput").value;
+        var t = document.createTextNode(inputValue);
+        li.appendChild(t);
+        if(inputValue === ''){
+            alert('You must write something')
+        }else{
+            document.getElementById("myUl").appendChild(li);
+        }
+        document.getElementById("myInput").value = "";
+        //creates span tag
+        var span = document.createElement("SPAN");
+        //creates a text (\u00D7 is a symbol for x)
+        var txt = document.createTextNode("\u00D7");
+        //giving a class name to span tag
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+
+        for(i=0; i < close.length; i++){
+        close[i].onclick =  function(){
+            //this refers to cuurent object or element that is close
+            //parentElement is the list(li)
+            var div = this.parentElement ;
+            //this property removes the list more like hides it
+            div.style.display = "none";
+            }
+        }
+    }
 </script>
 </html>
