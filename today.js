@@ -51,3 +51,5 @@ function newElement(){
 const date = new Date();
 const todaysDate = date.toLocaleDateString();
 document.getElementById("todaysDate").innerHTML =  `Date: ${todaysDate}`;
+const addBtn = document.getElementById("add-btn");
+addBtn.addEventListener("click",newElement)
